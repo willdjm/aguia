@@ -4,3 +4,10 @@ GET {{baseUrl}}/goal-2023/list
 Content-Type: application/json
 
 {}
+
+### 
+PATCH {{baseUrl}}/goal-2023/9
+Content-Type: application/json
+
+{} 
+
