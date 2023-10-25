@@ -16,59 +16,63 @@ type Repository = {
 }
 
 export default function Home() {
-  const [repositories, setRepositories] = useState<Repository[]>([])
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
   useEffect(() => {
     fetch('https://api3.aguiaassessoriaesportiva.com.br/goal-2023/list')
-    .then(response => response.json())
-    .then(data => {
-      setRepositories(data);
-    })
-  }, [])
+      .then(response => response.json())
+      .then(data => {
+        setRepositories(data);
+      });
+  }, []);
 
-  return(
+  return (
 
-<div className="max-w-5xl w-full flex">
+    <div className="flex items-center justify-center w-full">
 
 
-<table>
+      <div className="grid items-center justify-center max-w-screen-2xl w-full py-16">
+        <h1 className="flex items-center justify-center text-center text-4xl font-medium py-5">Cadastro Alunos</h1>
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr className="border-b">
+              <th className="px-2 py-3">Id</th>
+                <th scope="col" className="px-2 py-3">Nome</th>
+                <th scope="col" className="px-2 py-3">Telefone</th>
+                <th scope="col" className="px-2 py-3">E-mail</th>
+                <th scope="col" className="px-2 py-3">Nome Contato</th>
+                <th scope="col" className="px-2 py-3">Telefone Contato</th>
+                <th scope="col" className="px-2 py-3">Camiseta</th>
+                <th scope="col" className="px-2 py-3">Viseira ou Boné</th>
+                <th scope="col" className="px-2 py-3">Valor</th>
+                <th scope="col" className="px-2 py-3">Confirmação de Pagamento</th>
+              </tr>
+          </thead>
+          {repositories.map(list => {
+            return (
 
-<thead>
-          <tr>
-          <th scope="col" className="py-4">Id</th>
-          <th scope="col" className="py-4">Nome</th>
-          <th scope="col" className="py-4">Telefone</th>
-          <th scope="col" className="py-4">E-mail</th>
-          <th scope="col" className="py-4">Nome Contato</th>
-          <th scope="col" className="py-4">Telefone Contato</th>
-          <th scope="col" className="py-4">Camiseta</th>
-          <th scope="col" className="py-4">Viseira ou Boné</th>
-          <th scope="col" className="py-4">Pagamento</th>
-          <th scope="col" className="py-4">Confirmado</th>
-          </tr>
-        </thead>
-  {repositories.map(list =>{
-    return (
-      <>
-      <tbody>
-      <tr className="border-b dark:border-neutral-500">
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">{list.id}</td>
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">{list.name}</td>
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">{list.phone}</td>
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">{list.email}</td>
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">{list.contact_name}</td>
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">{list.contact_phone}</td>
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">{list.tshirt}</td>
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">{list.vise}</td>
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">Confirmado</td>  
-              <td className="whitespace-nowrap  px-6 py-4 font-medium">
-              <button><Modal /></button>
-              </td>
-            </tr>
-</tbody>
-</>    
-    )})}
-</table>
-</div>
-  )
+              <tbody key={list.id}>
+                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                  <td className="whitespace-nowrap px-2 py-4 font-medium text-red-500">{list.id}</td>
+                  <td className="whitespace-nowrap px-2 py-4 font-semibold">{list.name}</td>
+                  <td className="whitespace-nowrap px-2 py-4">{list.phone}</td>
+                  <td className="whitespace-nowrap px-2 py-4">{list.email}</td>
+                  <td className="whitespace-nowrap px-2 py-4">{list.contact_name}</td>
+                  <td className="whitespace-nowrap px-2 py-4">{list.contact_phone}</td>
+                  <td className="whitespace-nowrap px-2 py-4">{list.tshirt}</td>
+                  <td className="whitespace-nowrap px-2 py-4">{list.vise}</td>
+                  <td className="whitespace-nowrap px-2 py-4 text-emerald-500">Confirmado</td>
+                  <td className="whitespace-nowrap px-2 py-4">
+                    <button><Modal /></button>
+                  </td>
+                </tr>
+              </tbody>
+
+            );
+          })}
+        </table>
+
+      </div>
+    </div>
+  );
 }
