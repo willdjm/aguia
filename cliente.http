@@ -1,0 +1,6 @@
+@baseUrl = https://api3.aguiaassessoriaesportiva.com.br
+
+GET {{baseUrl}}/goal-2023/list
+Content-Type: application/json
+
+{}

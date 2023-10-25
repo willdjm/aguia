@@ -3,29 +3,25 @@
 import Modal from "./components/modal";
 import { useFetch } from "./hooks/useFetch";
 
-
 type Repository = {
-  id: string;
+  id: number;
   name: string;
   phone: string;
   email: string
   contact_name: string
   contact_phone: string
   tshirt: string
-  vise: string
+  vise: 'true' | 'false'
 
 }
 
 export default function Home() {
-  const { data: repositories, isFetching } = 
+  const { data: repositories } = 
   useFetch<Repository[]>('goal-2023/list')
-
 
   return (
 
     <div className="flex items-center justify-center w-full">
-      { isFetching && <p>Carregando...</p>}
-
 
       <div className="grid items-center justify-center max-w-screen-2xl w-full py-16">
         <h1 className="flex items-center justify-center text-center text-4xl font-medium py-5">Cadastro Alunos</h1>
