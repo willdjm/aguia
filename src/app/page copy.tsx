@@ -1,8 +1,7 @@
 "use client"
 
+import { useEffect, useState } from "react";
 import Modal from "./components/modal";
-import { useFetch } from "./hooks/useFetch";
-
 
 type Repository = {
   id: string;
@@ -17,14 +16,19 @@ type Repository = {
 }
 
 export default function Home() {
-  const { data: repositories, isFetching } = 
-  useFetch<Repository[]>('goal-2023/list')
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
+  useEffect(() => {
+    fetch('https://api3.aguiaassessoriaesportiva.com.br/goal-2023/list')
+      .then(response => response.json())
+      .then(data => {
+        setRepositories(data);
+      });
+  }, []);
 
   return (
 
     <div className="flex items-center justify-center w-full">
-      { isFetching && <p>Carregando...</p>}
 
 
       <div className="grid items-center justify-center max-w-screen-2xl w-full py-16">
@@ -44,7 +48,7 @@ export default function Home() {
                 <th scope="col" className="px-2 py-3">Confirmação de Pagamento</th>
               </tr>
           </thead>
-          {repositories?.map(list => {
+          {repositories.map(list => {
             return (
 
               <tbody key={list.id}>
