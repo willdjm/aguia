@@ -13,6 +13,7 @@ type Repository = {
   contact_phone: string;
   tshirt: string;
   vise: "true" | "false";
+  paid: "true" | "false";
 };
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
     <div className="flex items-center justify-center w-full">
       <div className="grid items-center justify-center max-w-screen-2xl w-full py-16">
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 text-5xl font-extrabold">
-          Cadastro Alunos
+          Inscritos no desafio 2023
         </h1>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto">
           <thead className="text-sm font-bold text-gray-700 uppercase bg-gray-200">
@@ -97,12 +98,12 @@ export default function Home() {
                   <td className="whitespace-nowrap px-2 py-4 text-center">
                     {viseira()}
                   </td>
-                  <td className="whitespace-nowrap px-2 py-4 text-emerald-500">
+                  <td className="whitespace-nowrap px-2 py-4 font-bold">
                     R$ 120
                   </td>
                   <td className="whitespace-nowrap px-2 py-4 text-center">
                     <button>
-                      <Modal id={list.id} name={list.name} />
+                      <Modal id={list.id} name={list.name} paid={list.paid} />
                     </button>
                   </td>
                 </tr>

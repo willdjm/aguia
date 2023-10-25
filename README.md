@@ -11,26 +11,11 @@ e.preventDefault();
         alert("pagamento registrado");
 
         Router.push("/dashboard");
-        // toast({
-        //   title: "Zona de treino atualizada :)",
-        //   status: "success",
-        //   position: "top-right",
-        //   variant: "subtle",
-        //   duration: 1500,
-        //   isClosable: true,
-        // });
+
       } catch (err) {
-        // toast({
-        //   title: "Erro ao atualizar a zona de treino :(",
-        //   status: "error",
-        //   position: "top-right",
-        //   variant: "subtle",
-        //   duration: 1500,
-        //   isClosable: true,
-        // });
+
       }
     } else {
       return false;
     }
-
 }
