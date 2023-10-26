@@ -3,8 +3,6 @@
 import { useState } from "react";
 import Modal from "./components/modal";
 import { useFetch } from "./hooks/useFetch";
-import { list } from "postcss";
-
 
 type Repository = {
   id: number;
