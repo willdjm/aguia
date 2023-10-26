@@ -61,7 +61,6 @@ export default function Modal({ id, name, paid }: any) {
                   <p className="text-black text-xl py-3">
                     Deseja confirmar o pagamento?
                   </p>
-                  <p className="text-black text-lg">Id do inscrito: <span className="text-red-500 font-medium">{id}</span></p>
                   <p className="text-xl font-semibold text-red-500">{name}</p>
                 </div>
 

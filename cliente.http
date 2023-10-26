@@ -6,10 +6,10 @@ Content-Type: application/json
 {}
 
 ### 
-PATCH {{baseUrl}}/goal-2023/27
+PATCH {{baseUrl}}/goal-2023/3
 Content-Type: application/json
 
-{
-    "paid": 1
-} 
+
+{} 
+
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Modal from "./components/modal";
 import { useFetch } from "./hooks/useFetch";
 
@@ -12,8 +11,10 @@ type Repository = {
   contact_name: string;
   contact_phone: string;
   tshirt: string;
-  vise: "true" | "false";
-  paid: "true" | "false";
+  vise: boolean;
+  paid: boolean;
+  economy_kit: boolean;
+
 };
 
 export default function Home() {
@@ -99,7 +100,23 @@ export default function Home() {
                     {viseira()}
                   </td>
                   <td className="whitespace-nowrap px-2 py-4 font-bold">
-                    R$ 120
+                
+                  {/* LOGICA VALOR  */}
+                  {list.economy_kit === false && list.vise === true ?
+                  <p className="text-center font-bold text-yellow-500">R$ 120,00</p> 
+                  : list.economy_kit === false && list.vise === false ? 
+                  <p className="text-center font-bold text-purple-500">R$ 100,00</p>
+                  : list.economy_kit === true && list.vise === false ? 
+                  <p className="text-center font-bold text-lime-700">R$ 80,00</p>  
+                  : list.economy_kit === null && list.vise === false ? 
+                  <p className="text-center font-bold text-pink-700">R$ 100,00</p>
+                  : list.economy_kit === null && list.vise === true ? 
+                  <p className="text-center font-bold text-zinc-950">R$ 120,00</p>
+                  : list.economy_kit === true && list.vise === true ? 
+                  <p className="text-center font-bold text-red-500">R$ 80,00</p>                       
+                  :
+                  <p>Error!</p>
+                }
                   </td>
                   <td className="whitespace-nowrap px-2 py-4 text-center">
                     <button>
