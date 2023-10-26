@@ -29,11 +29,14 @@ export default function Modal({ id, name, paid }: any) {
       {paid === true ?       
       
       <button
-        className="block text-white bg-green-600 cursor-not-allowed font-medium rounded-lg text-sm px-2 py-2.5 text-center opacity-50"
+        className="block text-white bg-green-600 cursor-not-allowed font-medium rounded-lg text-sm px-2 py-2.5 text-center opacity-50 tooltip"
+        data-tip='dsfsdfs'
         type="button"
       >
         Pagamento Confirmado
-      </button> :       <button
+      </button>
+      :
+      <button
         className="block text-white bg-blue-700 hover:bg-blue-500 font-medium rounded-lg text-sm px-3 py-2.5 text-center"
         type="button"
         onClick={() => setShowModal(true)}
