@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 const api = axios.create({
-  baseURL:'https://api3.aguiaassessoriaesportiva.com.br/'
+  baseURL: process.env.NEXT_PUBLIC_REACT_APP_API_LOCATION,
 })
 
 export default function Modal({ id, name, paid }: any) {
@@ -16,7 +16,7 @@ export default function Modal({ id, name, paid }: any) {
             await api.patch(`/goal-2023/${id}`, {
               paid: 1,
             });
-              // alert("pagamento registrado");
+            alert("pagamento registrado");
             window.location.reload()
             setShowModal(false)
           } catch (err) {

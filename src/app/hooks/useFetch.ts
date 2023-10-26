@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 
 const api = axios.create({
-    baseURL:'https://api3.aguiaassessoriaesportiva.com.br/'
+  baseURL: process.env.NEXT_PUBLIC_REACT_APP_API_LOCATION,
 })
 
 export function useFetch<T = unknown>(url: string){
